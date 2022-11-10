@@ -1,0 +1,166 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 150px;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(216, 82, 104);
+
+
+}
+
+.card {
+    width: 88%;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: darkorchid;
+    border-radius: 20px;
+    box-shadow: 0 0 15px white;
+
+
+}
+
+.gallery-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px 3px;
+    height: 70vh;
+    margin-bottom: 0;
+    text-align: center;
+
+
+
+}
+
+.image {
+    height: 110px;
+}
+
+.image img {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.card-header {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    color: deeppink;
+
+}
+
+.card-header h1 {
+    margin-bottom: 0;
+    margin-top: 10px;
+
+
+}
+
+.gallery-menu {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    animation: line 10s infinite;
+
+}
+
+label {
+    border: 2px solid aqua;
+    padding: 5px 20px;
+    color: black;
+    cursor: pointer;
+    background-color: aquamarine;
+
+}
+
+@keyframes line {
+    0% {
+        width: 70%;
+    }
+
+    25% {
+        width: 60%;
+    }
+
+    75% {
+        width: 90%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+input {
+    display: none;
+}
+
+#menu1:checked~.card .gallery-content .image {
+    opacity: 1;
+}
+
+#menu2:checked~.home .card .gallery-content .nature {
+    opacity: 1;
+    position: relative;
+}
+
+#menu2:checked~.home .card .gallery-content .coder,
+#menu2:checked~.home .card .gallery-content .city,
+#menu2:checked~.home .card .gallery-content .book {
+    opacity: 0;
+    position: absolute;
+}
+
+#menu5:checked~.home .card .gallery-content .book {
+    opacity: 1;
+    position: relative;
+}
+
+#menu5:checked~.home .card .gallery-content .city,
+#menu5:checked~.home .card .gallery-content .coder,
+#menu5:checked~.home .card .gallery-content .nature {
+    opacity: 0;
+    position: absolute;
+}
+
+#menu3:checked~.home .card .gallery-content .coder {
+    opacity: 1;
+    position: relative;
+}
+
+#menu3:checked~.home .card .gallery-content .city,
+#menu3:checked~.home .card .gallery-content .book,
+#menu3:checked~.home .card .gallery-content .nature {
+    opacity: 0;
+    position: absolute;
+}
+
+#menu4:checked~.home .card .gallery-content .city {
+    opacity: 1;
+    position: relative;
+}
+
+#menu4:checked~.home .card .gallery-content .book,
+#menu4:checked~.home .card .gallery-content .coder,
+#menu4:checked~.home .card .gallery-content .nature {
+    opacity: 0;
+    position: absolute;
+}

@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gallery{
+    text-align: center;
+}
+.gallery-title::before{
+    content: "";
+    position: absolute;
+    width:80px;
+    height: 4px;
+    background-color: red;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: line 2s infinite;
+
+}
+.gallery-title{
+    margin: 20px 0;
+    position: relative;
+}
+@keyframes line {
+    0%{
+        width: 80px;
+    }
+    25%{
+        width: 100px;
+    }
+    75%{
+        width: 120px;
+    }
+    100%{
+        width: 80px;
+    }
+    
+}
+.gallery-menu{
+    width: 30%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.gallery-menu label{
+    
+    border: 2px solid black;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.image{
+    height: 200px;
+
+    position: relative;
+}
+.gallery-content{
+    width: 70%;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
+#menu1:checked ~ .gallery .gallery-content .image {
+    opacity: 1;
+    position: relative;
+}
+/* Computer korinishi */
+#menu2:checked ~ .gallery .gallery-content .computer{
+    opacity: 1;
+    position: relative;
+}
+/* qolgan ikkitasi korinmasligi */
+#menu2:checked ~ .gallery .gallery-content .books,
+#menu2:checked ~ .gallery .gallery-content .nature{
+    opacity: 0;
+    position: absolute;
+}
+#menu3:checked ~ .gallery .gallery-content .nature{
+    opacity: 1;
+    position: relative;
+}
+#menu3:checked ~ .gallery .gallery-content .books,
+#menu3:checked ~ .gallery .gallery-content .computer{
+    opacity: 0;
+    position: absolute;
+}
+#menu4:checked ~ .gallery .gallery-content .books{
+    opacity: 1;
+    position: relative;
+}
+#menu4:checked ~ .gallery .gallery-content .nature,
+#menu4:checked ~ .gallery .gallery-content .computer{
+    opacity: 0;
+    position: absolute;
+}
+.image::before{
+    
+    content: "gallery";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:50%;
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    z-index: 1;
+    text-transform: capitalize;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 2s;
+    
+}
+.image:hover::before{
+    opacity: 1;
+    margin-top: 0;
+}
+.image::after{
+    content: "";
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 100%;
+    height:0;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: 2.5s;
+    transform: scaleY(0);
+    transform-origin: bottom;
+   
+}
+.image:hover::after{
+    opacity: 1;
+   height: 100%;
+  transform: scaleY(1);
+   
+  
+}
+input{
+    display: none;
+}

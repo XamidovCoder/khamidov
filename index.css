@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    width: 200px;
+}
+.gallery{
+    text-align: center;
+}
+.gallery-text{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+    background-color:rgb(142, 18, 203);
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+.gallery-text h1 {
+    animation: text 10s infinite;
+}
+.gallery-card{
+    width: 100%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    margin-bottom: 50px;
+}
+.card{
+  height: 200px;
+  position: relative;
+  width: 25%;
+  background-image: url(nature.jpg);
+  background-size: cover;    
+}
+.gallery-menu{
+    margin: 70px auto;
+    width: 70%;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100px; 
+}
+.gallery-menu label{
+    border: 2px solid rgb(37, 146, 146);
+    padding: 8px 20px;
+   border-radius: 8px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(37, 146, 146);
+    font-size: 20px;
+    transition: 3s;
+    overflow:hidden;
+    cursor: pointer;  
+}
+input{
+    display: none;
+}
+.gallery-menu label:hover{
+    background-color: aqua;
+    border: 2px solid aqua;
+    color: black;
+   
+   transform: scale(1.2);
+
+}
+.gallery-content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    margin: 0 auto;
+    gap: 25px;
+    margin-bottom: 200px;
+}
+.image{
+    height: 300px;
+    position: relative;
+}
+img{
+   width: 100%;
+   height: 100%;
+}
+.card::before{
+    content: "Welcome";
+    position: absolute;
+    top: 0;
+    transition: 2s;
+    opacity: 0;
+    font-size: 30px;
+    z-index: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    color: aliceblue;
+}
+.card:hover::before{
+    opacity: 1;
+    top:50%;
+}
+.card::after{
+    content: "";
+    background-color: rgba(0,0,0,0.5);
+    height: 0;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    transition: 2s;
+    opacity: 0;
+}
+.card:hover::after{
+  height: 100%;
+  opacity: 1;
+}
+.gallery-menu::before{
+    content: "";
+    width: 200px;
+    height: 2px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: aqua;
+    border: 2px solid aqua;
+bottom: -20%;
+animation: line 3s infinite;   
+}
+@keyframes line {
+    0%{
+        width: 50%;
+       
+    }
+    25%{
+        width: 30%;
+
+    }
+    75%{
+        width: 70%;
+
+    }
+    100%{
+        width: 50%;
+
+    }
+}
+.gallery-card .card:nth-child(2) {
+    background-image: url(chicago.jpg);
+}
+.gallery-card .card:nth-child(3) {
+    background-image: url(coders-meeting.jpg);
+}
+.gallery-card .card:nth-child(4) {
+    background-image: url(stadion.jpg);
+}
+.gallery-card .card:nth-child(2)::before{
+    content: "City";
+}
+.gallery-card .card:nth-child(3)::before{
+    content: "Coder meeting";
+}
+.gallery-card .card:nth-child(4)::before{
+    content: "Football";
+}
+.gallery-card .card:nth-child(1)::before{
+    content: "Nature";
+}
+@keyframes text{
+    from{transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }  
+}  
+
+#menu1:checked ~  .gallery 
+.gallery-content .image{
+    opacity: 1;   
+}
+#menu2:checked ~  .gallery .gallery-content .nature{
+ opacity: 1;
+ position: relative;
+}
+#menu2:checked ~  .gallery .gallery-content .books,
+#menu2:checked ~  .gallery .gallery-content .coder{
+    opacity: 0;
+    position: absolute;
+}
+#menu3:checked ~  .gallery .gallery-content .books{
+    opacity: 1;
+    position: relative;
+   }
+   #menu3:checked ~  .gallery .gallery-content .nature,
+   #menu3:checked ~  .gallery .gallery-content .coder{
+       opacity: 0;
+       position: absolute;
+   }
+   #menu4:checked ~  .gallery .gallery-content .coder{
+    opacity: 1;
+    position: relative;
+   }
+   #menu4:checked ~  .gallery .gallery-content .books,
+   #menu4:checked ~  .gallery .gallery-content .nature{
+       opacity: 0;
+       position: absolute;
+   }
+   .image::before{
+    content: "Pictures";
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    margin-top: 0;
+    opacity: 0;
+    transition: 3s;
+    color: aliceblue;
+    font-weight: 900;
+    z-index: 1;
+   }
+   .image:hover::before{
+    margin-top: 150px;
+    opacity: 1;
+   }
+   .image::after{
+    content: "";
+    height: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    transition: 3s;
+    opacity: 0; 
+   }
+   .image:hover::after{
+    opacity: 1;
+    cursor: pointer;
+    height: 100%;
+   }
+   
+
+
+
+
